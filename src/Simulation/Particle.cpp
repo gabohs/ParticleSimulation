@@ -68,8 +68,6 @@ void Particle::setVel(sf::Vector2f &vel)
 
 void Particle::collideWithWall(sf::Vector2u winSize)
 {
-    // float particleDiameter = 2.0f * radius_;
-
     sf::Vector2f windowSize(static_cast<float>(winSize.x), static_cast<float>(winSize.y));
 
     // Left and Right
