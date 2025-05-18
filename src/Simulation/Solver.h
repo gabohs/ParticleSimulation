@@ -18,7 +18,7 @@ public:
     void addParticle(const Particle& particle);
     void drawParticles(sf::RenderWindow& window);
 
-    void update(sf::Time dt);
+    void update(sf::Time dt, sf::Vector2u winSize);
 
     const std::vector<Particle>& getParticles();
 };

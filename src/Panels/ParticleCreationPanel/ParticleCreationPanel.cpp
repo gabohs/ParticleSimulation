@@ -8,12 +8,12 @@ ParticleCreationPanel::ParticleCreationPanel()
     particleRadius_ = 10.0;
 }
 
-double ParticleCreationPanel::getParticleMass()
+float ParticleCreationPanel::getParticleMass()
 {
     return particleMass_;
 }
 
-double ParticleCreationPanel::getParticleRadius()
+float ParticleCreationPanel::getParticleRadius()
 {
     return particleRadius_;
 }
@@ -29,10 +29,10 @@ void ParticleCreationPanel::update()
     ImGui::Begin("Particle Creation Panel");
 
     ImGui::Text("Particle Mass:");
-    ImGui::InputDouble("##ParticleMass", &particleMass_);
+    ImGui::InputFloat("##ParticleMass", &particleMass_);
 
     ImGui::Text("Particle Radius:");
-    ImGui::InputDouble("##ParticleRadius", &particleRadius_);
+    ImGui::InputFloat("##ParticleRadius", &particleRadius_);
 
     ImGui::Text("Particle Color:");
     static float color[] = {1.f, 0.f, 0.f};

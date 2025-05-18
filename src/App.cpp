@@ -66,8 +66,8 @@ void App::update(sf::Time dt)
     {
         sf::Vector2f mousePos = window_.mapPixelToCoords(sf::Mouse::getPosition(window_));
 
-        double particleMass = particleCreationPanel.getParticleMass();
-        double particleRadius = particleCreationPanel.getParticleRadius();
+        float particleMass = particleCreationPanel.getParticleMass();
+        float particleRadius = particleCreationPanel.getParticleRadius();
         sf::Color particleColor = particleCreationPanel.getParticleColor();
 
         Particle p(mousePos, particleMass, particleRadius, particleColor);
@@ -77,7 +77,7 @@ void App::update(sf::Time dt)
     mouseLeftWasPressed_ = mouseCurrentlyPressed;
 
     solver_.setSimulationParams(simControlPanel.getParams());
-    solver_.update(dt);
+    solver_.update(dt, {window_.getSize().x, window_.getSize().y});
 }
 
 void App::render()

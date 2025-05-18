@@ -18,17 +18,22 @@ void Solver::drawParticles(sf::RenderWindow &window)
     }
 }
 
-void Solver::update(sf::Time dt)
+void Solver::update(sf::Time dt, sf::Vector2u winSize)
 {
     for (auto& particle : particles_)
     {
-        const double pxPerM = 2;
+        const float pxPerM = 2.0f;
 
-        particle.setVel().y += params_.gravity * dt.asSeconds() * pxPerM;   
-    
-        particle.setPos() += particle.getVel() * dt.asSeconds();
+        sf::Vector2f vel = particle.getVel();
+        sf::Vector2f pos = particle.getPos();
 
-        particle.getShape().setPosition(particle.getPos());
+        vel.y += params_.gravity * dt.asSeconds() * pxPerM;
+        particle.setVel(vel);
+
+        pos += vel * dt.asSeconds();
+        particle.setPos(pos);
+
+        particle.collideWithWall(winSize);
     }
 }
 

@@ -14,15 +14,15 @@ private:
     sf::Vector2f position_;
     sf::Vector2f velocity_;
 
-    double mass_;
-    double radius_;
+    float mass_;
+    float radius_;
 
     sf::Color color_;
 
     sf::CircleShape shape_;
 
 public:
-    Particle(sf::Vector2f position, double mass, double radius, sf::Color color);
+    Particle(sf::Vector2f position, float mass, float radius, sf::Color color);
 
     // void update(float dt);
 
@@ -30,12 +30,13 @@ public:
 
     sf::Vector2f getPos();
     sf::Vector2f getVel();
-    double getMass();
-    double getRadius();
-
+    float getMass();
+    float getRadius();    
 
     void setSimulationParams(const SimulationParams& params);
-    sf::Vector2f& setPos();
-    sf::Vector2f& setVel();
+    void setPos(sf::Vector2f& pos);
+    void setVel(sf::Vector2f &vel);
+
+    void collideWithWall(sf::Vector2u winSize);
 
 };

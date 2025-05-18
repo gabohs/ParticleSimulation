@@ -6,16 +6,16 @@ class ParticleCreationPanel
 {
 private:
     // particle attributes
-    double particleMass_;
-    double particleRadius_;
+    float particleMass_;
+    float particleRadius_;
 
     sf::Color color_;
 
 public:
     ParticleCreationPanel();
 
-    double getParticleMass();
-    double getParticleRadius();
+    float getParticleMass();
+    float getParticleRadius();
 
     sf::Color getParticleColor();
 
