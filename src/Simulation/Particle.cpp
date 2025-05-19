@@ -39,21 +39,6 @@ float Particle::getRadius()
     return radius_;
 }
 
-void Particle::setSimulationParams(const SimulationParams &params)
-{
-    params_ = params;
-}
-
-// sf::Vector2f& Particle::setPos()
-// {
-//     return position_;
-// }
-
-// sf::Vector2f& Particle::setVel()
-// {
-//     return velocity_;
-// }
-
 void Particle::setPos(sf::Vector2f& pos)
 {
     position_ = pos;
@@ -66,28 +51,28 @@ void Particle::setVel(sf::Vector2f &vel)
     velocity_= vel;
 }
 
-void Particle::collideWithWall(sf::Vector2u winSize)
+void Particle::collideWithWall(sf::Vector2u winSize, float restitution)
 {
     sf::Vector2f windowSize(static_cast<float>(winSize.x), static_cast<float>(winSize.y));
 
     // Left and Right
     if (position_.x < 0.0f)
     {
-        velocity_.x *= -1;
+        velocity_.x *= -restitution;
     }
     else if ( (position_.x + radius_) > windowSize.x )
     {
-        velocity_.x *= -1;
+        velocity_.x *= -restitution;
     }
 
     // Top and Bottom
     if (position_.y < 0.0f)
     {
-        velocity_.y *= -1;
+        velocity_.y *= -restitution;
     }
     else if ( (position_.y + radius_) > windowSize.y )
     {
-        velocity_.y *= -1;
+        velocity_.y *= -restitution;
     }
 }
 

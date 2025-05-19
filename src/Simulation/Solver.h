@@ -6,6 +6,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "Math/vec.h"
+
 class Solver 
 {
 private:
@@ -17,6 +19,9 @@ public:
 
     void addParticle(const Particle& particle);
     void drawParticles(sf::RenderWindow& window);
+
+    bool areColliding(Particle& a, Particle& b); // particle collision detection
+    void handleCollision();
 
     void update(sf::Time dt, sf::Vector2u winSize);
 

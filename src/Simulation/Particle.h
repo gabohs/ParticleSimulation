@@ -9,8 +9,6 @@
 class Particle 
 {
 private:
-    SimulationParams params_;
-
     sf::Vector2f position_;
     sf::Vector2f velocity_;
 
@@ -33,10 +31,9 @@ public:
     float getMass();
     float getRadius();    
 
-    void setSimulationParams(const SimulationParams& params);
     void setPos(sf::Vector2f& pos);
     void setVel(sf::Vector2f &vel);
 
-    void collideWithWall(sf::Vector2u winSize);
+    void collideWithWall(sf::Vector2u winSize, float restitution); // detects collision with walls
 
 };
