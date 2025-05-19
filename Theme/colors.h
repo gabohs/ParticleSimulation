@@ -5,6 +5,8 @@
 struct Colors
 {
     static ImVec4 winBg;
+    static ImVec4 TitleBar;
+    static ImVec4 TitleBarActive;
     
     static ImVec4 Green;
     static ImVec4 LightBlue;

@@ -1,6 +1,8 @@
 #include "colors.h"
 
-ImVec4 Colors::winBg     = ImVec4(40.f / 255.f, 40.f / 255.f, 40.f / 255.f, 1.f); 
+ImVec4 Colors::winBg          = ImVec4(40.f / 255.f, 40.f / 255.f, 40.f / 255.f, 1.f); 
+ImVec4 Colors::TitleBar       = ImVec4(60.f / 255.f, 56.f / 255.f, 54.f / 255.f, 1.f); 
+ImVec4 Colors::TitleBarActive = ImVec4(102.f / 255.f, 92.f / 255.f, 84.f / 255.f, 1.f); 
 
 ImVec4 Colors::Green     = ImVec4(184.f / 255.f, 187.f / 255.f, 38.f / 255.f, 1.f); 
 ImVec4 Colors::LightBlue = ImVec4(131.f / 255.f, 165.f / 255.f, 152.f / 255.f, 1.f); 
