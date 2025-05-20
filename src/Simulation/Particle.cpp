@@ -19,12 +19,12 @@ sf::CircleShape& Particle::getShape()
     return shape_;
 }
 
-sf::Vector2f Particle::getPos()
+sf::Vector2f Particle::getPos() const
 {
     return position_;
 }
 
-sf::Vector2f Particle::getVel()
+sf::Vector2f Particle::getVel() const
 {
     return velocity_;
 }
@@ -57,21 +57,25 @@ void Particle::collideWithWall(sf::Vector2u winSize, float restitution)
 
     // Left and Right
     if (position_.x < 0.0f)
-    {
+    {   
+        position_.x = 0.0f;
         velocity_.x *= -restitution;
     }
     else if ( (position_.x + radius_) > windowSize.x )
-    {
+    {   
+        position_.x = windowSize.x - radius_;   
         velocity_.x *= -restitution;
     }
 
     // Top and Bottom
     if (position_.y < 0.0f)
-    {
+    {   
+        position_.y = 0.0f;
         velocity_.y *= -restitution;
     }
     else if ( (position_.y + radius_) > windowSize.y )
-    {
+    {   
+        position_.y = windowSize.y - radius_;
         velocity_.y *= -restitution;
     }
 }

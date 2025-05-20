@@ -26,8 +26,8 @@ public:
 
     sf::CircleShape& getShape();
 
-    sf::Vector2f getPos();
-    sf::Vector2f getVel();
+    sf::Vector2f getPos() const;
+    sf::Vector2f getVel() const;
     float getMass();
     float getRadius();    
 

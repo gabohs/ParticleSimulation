@@ -10,19 +10,9 @@
 
 App::App()
 {
-    sf::Vector2f resolution = {
-        static_cast<float>(sf::VideoMode::getDesktopMode().width),
-        static_cast<float>(sf::VideoMode::getDesktopMode().height)
-    };
+    sf::Vector2u resolution = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height};
 
-    window_.create(
-        sf::VideoMode(
-            static_cast<unsigned int>(resolution.x),
-            static_cast<unsigned int>(resolution.y)
-        ),
-        "Particle Simulator",
-        sf::Style::Default
-    );
+    window_.create(sf::VideoMode(resolution.x,resolution.y), "Particle Simulator", sf::Style::Default);
 
     ImGui::SFML::Init(window_);
 
@@ -35,8 +25,6 @@ App::App()
     io.Fonts->AddFontFromMemoryTTF(JetBrainsMonoNL, FontSize, 15.0f, &font_cfg);
 
     ImGui::SFML::UpdateFontTexture();
-
-    // // Initialize particle simulation with references to panel variables
 }
 
 void App::handleEvents()
@@ -71,8 +59,25 @@ void App::update(sf::Time dt)
         sf::Color particleColor = particleCreationPanel.getParticleColor();
 
         Particle p(mousePos, particleMass, particleRadius, particleColor);
-        solver_.addParticle(p);
-
+        
+        // prevent overlap when creating particles
+        bool overlaps = false;
+        for (const auto& particle : solver_.getParticles())
+        {
+            float dist = std::sqrt( (particle.getPos().x - mousePos.x) * (particle.getPos().x - mousePos.x) + 
+                                    (particle.getPos().y - mousePos.y) * (particle.getPos().y - mousePos.y) );  
+            
+            if (dist < p.getRadius() + particleRadius) 
+            {
+                overlaps = true;
+                break;
+            }
+        }
+        if (!overlaps)
+        {
+            solver_.addParticle(p);
+        }
+            
     }
     mouseLeftWasPressed_ = mouseCurrentlyPressed;
 
