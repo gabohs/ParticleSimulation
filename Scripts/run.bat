@@ -12,5 +12,6 @@ if exist "%path_to_main%" (
     timeout /t 1 /nobreak >nul
     start cmd /k "%path_to_main%"
 ) else (
+    echo Path to main is set to %path_to_main%
     echo main.exe not found! Check the value of the path_to_main variable in run.bat
 )
