@@ -65,8 +65,10 @@ set (SOURCES
     ${SRC_DIR}/Simulation/Particle.cpp
     ${SRC_DIR}/Simulation/Math/vec.cpp
     ${SRC_DIR}/Simulation/Solver.cpp
+
     ${SRC_DIR}/Panels/ParticleCreationPanel/ParticleCreationPanel.cpp
     ${SRC_DIR}/Panels/SimulationControlPanel/SimulationControlPanel.cpp
+    ${SRC_DIR}/Panels/StatsPanel/StatsPanel.cpp
 )
 
 add_executable(ParticleSimulation ${SOURCES})

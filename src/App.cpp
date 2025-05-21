@@ -45,6 +45,8 @@ void App::update(sf::Time dt)
     ImGui::SFML::Update(window_, dt);
 
     // render panels
+    statsPanel.update(dt, solver_.getParticles().size());
+    statsPanel.render();
     particleCreationPanel.render();
     simControlPanel.render();
 
