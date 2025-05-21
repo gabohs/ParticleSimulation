@@ -12,7 +12,6 @@ namespace setStyle
         style.PopupRounding  = 4.f;
         style.ScrollbarSize = 14.0f;
         
-
         style.Colors[ImGuiCol_WindowBg]             = Colors::winBg;
         style.Colors[ImGuiCol_TitleBg]              = Colors::TitleBar;
         style.Colors[ImGuiCol_TitleBgActive]        = Colors::TitleBarActive;
@@ -37,7 +36,6 @@ namespace setStyle
 
         style.Colors[ImGuiCol_Tab]                  = Colors::DarkBlue;
         style.Colors[ImGuiCol_TabActive]            = Colors::LightBlue;
-        
     }
 }
 
