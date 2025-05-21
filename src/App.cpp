@@ -49,6 +49,12 @@ void App::update(sf::Time dt)
     statsPanel.render();
     particleCreationPanel.render();
     simControlPanel.render();
+    cfgPanel.render();
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
+    {
+        cfgPanel.shouldRender();
+    }
 
     // handle particle creation
     bool mouseCurrentlyPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
@@ -91,7 +97,7 @@ void App::update(sf::Time dt)
 
 void App::render()
 {
-    window_.clear();
+    window_.clear(cfgPanel.getWinBgColor());
 
     setStyle::GruvBox_Dark();
 

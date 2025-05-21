@@ -10,6 +10,7 @@
 #include "Panels/ParticleCreationPanel/ParticleCreationPanel.h"
 #include "Panels/SimulationControlPanel/SimulationControlPanel.h"
 #include "Panels/StatsPanel/StatsPanel.h"
+#include "Panels/ConfigPanel/ConfigPanel.h"
 
 class App 
 {
@@ -22,6 +23,8 @@ private:
     SimulationControlPanel simControlPanel;
     ParticleCreationPanel particleCreationPanel;
     StatsPanel statsPanel;
+
+    ConfigPanel cfgPanel;
     
     void handleEvents();
     void update(sf::Time dt);
