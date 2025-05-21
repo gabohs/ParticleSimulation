@@ -1,7 +1,9 @@
 #pragma once
 
+// This struct represents the simulation physics parameters and is initialized and modified by the SimulationControlPanel and used by the solver.
+
 struct SimulationParams 
 {
-    float gravity = 9.8f;
-    float restitution = 1.0f;
+    float gravity;
+    float restitution;
 };

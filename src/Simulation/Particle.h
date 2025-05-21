@@ -22,9 +22,7 @@ private:
 public:
     Particle(sf::Vector2f position, float mass, float radius, sf::Color color);
 
-    // void update(float dt);
-
-    sf::CircleShape& getShape();
+    sf::CircleShape& getShape(); // used to draw the sf::CircleShape in window.draw()
 
     sf::Vector2f getPos() const;
     sf::Vector2f getVel() const;
@@ -35,5 +33,4 @@ public:
     void setVel(sf::Vector2f &vel);
 
     void collideWithWall(sf::Vector2u winSize, float restitution); // detects collision with walls
-
 };

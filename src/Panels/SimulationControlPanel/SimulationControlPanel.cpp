@@ -4,7 +4,8 @@
 
 SimulationControlPanel::SimulationControlPanel()
 {
-    params_.gravity = 9.8;
+    params_.gravity = 9.8f;
+    params_.restitution = 1.0f;
 }
 
 const SimulationParams &SimulationControlPanel::getParams() const
@@ -12,7 +13,7 @@ const SimulationParams &SimulationControlPanel::getParams() const
     return params_;
 }
 
-void SimulationControlPanel::update()
+void SimulationControlPanel::render()
 {
     ImGui::SetNextWindowSize(ImVec2(300, 120), ImGuiCond_Once);
     ImGui::Begin("Simulation Control Panel");

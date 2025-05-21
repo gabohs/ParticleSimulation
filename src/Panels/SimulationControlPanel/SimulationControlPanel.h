@@ -10,7 +10,7 @@ private:
 public:
     SimulationControlPanel();
 
-    const SimulationParams& getParams() const;
+    const SimulationParams& getParams() const; // to pass the parameters defined by the user to the Solver
 
-    void update();
+    void render();
 };

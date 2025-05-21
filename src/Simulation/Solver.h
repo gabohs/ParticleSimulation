@@ -14,16 +14,17 @@ private:
     std::vector<Particle> particles_;
     SimulationParams params_;
 
-public:
-    void setSimulationParams(const SimulationParams& params);
+    bool areColliding(Particle& a, Particle& b); // returns true if particles a and b collide
 
-    void addParticle(const Particle& particle);
+public:
+    void setSimulationParams(const SimulationParams& params); // Pass the simulation parameters defined by SimulationControlPanel to the solver
+
+    void addParticle(const Particle& particle); 
     void drawParticles(sf::RenderWindow& window);
 
-    bool areColliding(Particle& a, Particle& b); // particle collision detection
     void handleCollision();
 
     void update(sf::Time dt, sf::Vector2u winSize);
 
-    const std::vector<Particle>& getParticles();
+    const std::vector<Particle>& getParticles(); // returns a reference to particles_
 };

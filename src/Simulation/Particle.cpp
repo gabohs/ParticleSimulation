@@ -1,12 +1,8 @@
 #include "Particle.h"
 
-Particle::Particle(sf::Vector2f position, float mass, float radius, sf::Color color)
+Particle::Particle(sf::Vector2f position, float mass, float radius, sf::Color color) : 
+    position_(position), mass_(mass), radius_(radius), color_(color)
 {
-    position_ = position;
-    mass_ = mass;
-    radius_ = radius;
-    color_ = color;
-
     shape_.setPosition(position_);
     shape_.setRadius(radius_);
 

@@ -23,7 +23,7 @@ sf::Color ParticleCreationPanel::getParticleColor()
     return color_;
 }
 
-void ParticleCreationPanel::update()
+void ParticleCreationPanel::render()
 {   
     ImGui::SetNextWindowSize(ImVec2(300, 175), ImGuiCond_Once);
     ImGui::Begin("Particle Creation Panel");

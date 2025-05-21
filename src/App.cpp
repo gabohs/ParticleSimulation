@@ -44,9 +44,11 @@ void App::update(sf::Time dt)
 {
     ImGui::SFML::Update(window_, dt);
 
-    particleCreationPanel.update();
-    simControlPanel.update();
+    // render panels
+    particleCreationPanel.render();
+    simControlPanel.render();
 
+    // handle particle creation
     bool mouseCurrentlyPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     bool aKeyIsHeld = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
 

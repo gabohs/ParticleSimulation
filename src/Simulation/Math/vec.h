@@ -4,13 +4,13 @@
 
 namespace math  
 {   
-    sf::Vector2f vecSubtract(sf::Vector2f& vec1, sf::Vector2f& vec2);
-    sf::Vector2f vecAdd(sf::Vector2f& vec1, sf::Vector2f& vec2);
-    sf::Vector2f vecMultiply(sf::Vector2f& v, float scalar);
+    sf::Vector2f vecSubtract(const sf::Vector2f& vec1, const sf::Vector2f& vec2);
+    sf::Vector2f vecAdd(const sf::Vector2f& vec1, const sf::Vector2f& vec2);
+    sf::Vector2f vecMultiply(const sf::Vector2f& v, float scalar);
 
-    sf::Vector2f vecProjection(sf::Vector2f& vec1, sf::Vector2f& vec2);
+    sf::Vector2f vecProjection(const sf::Vector2f& vec1, const sf::Vector2f& vec2);
 
-    sf::Vector2f vecNormalize(sf::Vector2f& vec);
+    sf::Vector2f vecNormalize(const sf::Vector2f& vec);
 
-    float vecLength(sf::Vector2f& vec);
+    float vecLength(const sf::Vector2f& vec);
 }

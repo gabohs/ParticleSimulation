@@ -1,6 +1,19 @@
 #include "Solver.h"
 
-void Solver::setSimulationParams(const SimulationParams& params)
+bool Solver::areColliding(Particle& a, Particle& b)
+{
+    sf::Vector2f distance = a.getPos() - b.getPos();
+    
+    float radii_sum = a.getRadius() + b.getRadius();
+
+    if ( (distance.x * distance.x) + (distance.y * distance.y) <= (radii_sum * radii_sum) )
+    {
+        return true;
+    }
+    return false;
+}
+
+void Solver::setSimulationParams(const SimulationParams &params)
 {
     params_ = params; 
 }
@@ -16,19 +29,6 @@ void Solver::drawParticles(sf::RenderWindow &window)
     {
         window.draw(particle.getShape());
     }
-}
-
-bool Solver::areColliding(Particle& a, Particle& b)
-{
-    sf::Vector2f distance = a.getPos() - b.getPos();
-    
-    float radii_sum = a.getRadius() + b.getRadius();
-
-    if ( (distance.x * distance.x) + (distance.y * distance.y) <= (radii_sum * radii_sum) )
-    {
-        return true;
-    }
-    return false;
 }
 
 void Solver::handleCollision()

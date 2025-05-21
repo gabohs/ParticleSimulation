@@ -14,10 +14,10 @@ private:
 public:
     ParticleCreationPanel();
 
-    float getParticleMass();
-    float getParticleRadius();
+    float getParticleMass(); // used to get the mass inputed by the user when creating a new particle 
+    float getParticleRadius(); // used to get the radius inputed by the user when creating a new particle 
 
-    sf::Color getParticleColor();
+    sf::Color getParticleColor(); // used to get the color inputed by the user when creating a new particle 
 
-    void update();
+    void render(); // rendering the panel
 };
