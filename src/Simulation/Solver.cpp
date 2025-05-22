@@ -1,6 +1,42 @@
 #include "Solver.h"
 
-bool Solver::areColliding(Particle& a, Particle& b)
+void Solver::collideWithWall(Particle& particle, sf::Vector2u winSize)
+{
+    sf::Vector2f windowSize(static_cast<float>(winSize.x), static_cast<float>(winSize.y));
+
+    sf::Vector2f pos = particle.getPos();
+    sf::Vector2f vel = particle.getVel();
+    float radius = particle.getRadius();
+
+    // Left and Right
+    if (pos.x < 0.0f)
+    {   
+        pos.x = 0.0f;
+        vel.x *= -params_.restitution;
+    }
+    else if ( (pos.x + radius) > windowSize.x )
+    {   
+        pos.x = windowSize.x - radius;   
+        vel.x *= -params_.restitution;
+    }
+
+    // Top and Bottom
+    if (pos.y < 0.0f)
+    {   
+        pos.y = 0.0f;
+        vel.y *= -params_.restitution;
+    }
+    else if ( (pos.y + radius) > windowSize.y )
+    {   
+        pos.y = windowSize.y - radius;
+        vel.y *= -params_.restitution;
+    }
+
+    particle.setPos(pos);
+    particle.setVel(vel);
+}
+
+bool Solver::areColliding(Particle &a, Particle &b)
 {
     sf::Vector2f distance = a.getPos() - b.getPos();
     
@@ -34,7 +70,7 @@ void Solver::drawParticles(sf::RenderWindow &window)
 void Solver::handleCollision()
 {
     for (size_t i = 0; i < particles_.size(); i++)
-    {
+    {   
         for (size_t j = i + 1;  j < particles_.size(); j++)
         {   
             Particle& p1 = particles_[i];
@@ -81,7 +117,7 @@ void Solver::update(sf::Time dt, sf::Vector2u winSize)
         pos += vel * dt.asSeconds();
         particle.setPos(pos);
 
-        particle.collideWithWall(winSize, params_.restitution);
+        collideWithWall(particle, winSize);
     }
     handleCollision();
     

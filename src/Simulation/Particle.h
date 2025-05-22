@@ -31,6 +31,4 @@ public:
 
     void setPos(sf::Vector2f& pos);
     void setVel(sf::Vector2f &vel);
-
-    void collideWithWall(sf::Vector2u winSize, float restitution); // detects collision with walls
 };
