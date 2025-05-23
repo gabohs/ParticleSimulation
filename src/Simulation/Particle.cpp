@@ -25,12 +25,12 @@ sf::Vector2f Particle::getVel() const
     return velocity_;
 }
 
-float Particle::getMass()
+float Particle::getMass() const
 {
     return mass_;
 }
 
-float Particle::getRadius()
+float Particle::getRadius() const
 {
     return radius_;
 }

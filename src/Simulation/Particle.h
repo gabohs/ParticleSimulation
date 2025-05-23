@@ -26,8 +26,8 @@ public:
 
     sf::Vector2f getPos() const;
     sf::Vector2f getVel() const;
-    float getMass();
-    float getRadius();    
+    float getMass() const;
+    float getRadius() const;    
 
     void setPos(sf::Vector2f& pos);
     void setVel(sf::Vector2f &vel);

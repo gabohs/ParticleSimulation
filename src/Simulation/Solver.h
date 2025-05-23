@@ -14,7 +14,7 @@ private:
     std::vector<Particle> particles_;
     SimulationParams params_;
 
-    void collideWithWall(Particle& particle, sf::Vector2u winSize);
+    void collideWithWall(Particle& particle, sf::Vector2u winSize); // handle particle collisions with the screen borders
     bool areColliding(Particle& a, Particle& b); // returns true if particles a and b collide
 
 public:
